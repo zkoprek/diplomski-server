@@ -173,4 +173,4 @@ def handle_get_match_future(msg):
 
 
 if __name__ == '__main__':
-    GLOBAL.socketio.run(GLOBAL.app, debug=True, port=8080)
+    GLOBAL.socketio.run(GLOBAL.app, debug=True, host="0.0.0.0", port=8080)

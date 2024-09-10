@@ -36,7 +36,8 @@ class Live_Games_Agent(Agent):
                              "goalsHome": item["goals"]["home"], "goalsAway": item["goals"]["away"], "statusShort": item["fixture"]["status"]["short"], "elapsed": item["fixture"]["status"]["elapsed"]}
                 GLOBAL.live_games.append(game_json)
 
-            print("Emitting live_games...")
+            if not GLOBAL.exit_event.is_set():
+                print("Emitting live_games...")
             GLOBAL.socketio.emit("live_games", GLOBAL.live_games)
 
         async def on_end(self):
